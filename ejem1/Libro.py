@@ -27,7 +27,7 @@ class Libro:
         devo = self.__prestamo = False
         return devo
     
-    def esta_prestado(self):
+    def estado_prestado(self):
         prestamo = self.__prestamo
         return prestamo
 
