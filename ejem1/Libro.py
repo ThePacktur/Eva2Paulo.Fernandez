@@ -23,6 +23,16 @@ class Libro:
     def set_anio(self,anio):
         self.__anio = anio
 
+    def get_titulo(self):
+        return self.__titulo
+    
+    def get_autor(self):
+        return self.__autor
+    
+    def get_anio(self):
+        return self.__anio
+    
+
     def devolver(self):
         devo = self.__prestamo = False
         return devo

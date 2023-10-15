@@ -3,6 +3,9 @@ class CuentaBancaria:
         self.__nombre_titular = nombre_titular
         self.__saldo_inicial = saldo_inicial
 
+    def get_saldo_inicial(self):
+        return self.__saldo_inicial
+
     def depositar(self,valor:float):
         tot = self.__saldo_inicial + valor
         self.__saldo_inicial(tot)
@@ -20,7 +23,7 @@ class CuentaBancaria:
         print(f"\nSaldo inicial: {self.__saldo_inicial}")
         print(f"\nDeposito: {self.depositar()}")
         print(f"\nGiro: {self.retirar()}")
-        
+
 
     
         

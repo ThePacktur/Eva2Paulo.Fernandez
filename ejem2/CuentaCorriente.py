@@ -5,14 +5,30 @@ class CuentaCorriente(CuentaBancaria):
         super().__init__(nombre_titular, saldo_inicial)
         self.__sobregiro = sobregiro
     
+    def retiro(self,valor: float):
+        if valor <= self.get_saldo_inicial + self.__sobregiro:
+            if valor <= self.get_saldo_inicial:
+                super().get_saldo_inicial -= valor
+            else:
+                self.__sobregiro -= valor -self.get_saldo_inicial
+                self.get_saldo_inicial = 0
+        else:
+            print("saldo insuficiente, se encuentra sobregirado.")
+
     def ver_limite_sobregiro(self):
-        pass
+        print(f"\nSaldo insuficiente:{self.__sobregiro}")
 
-    def modificar_limite_sobregiro(self):
-        pass
+    def modificar_limite_sobregiro(self, new_limit: float):
+        self.__sobregiro = new_limit
+        
 
-    def pagar_sobregiro(self):
-        pass
-    def ver_sobregiro(self):
-        pass
-    
+    def pagar_sobregiro(self, valor:float):
+        if valor <= self.get_saldo_inicial:
+            self.get_saldo_inicial -= valor
+            self.__sobregiro += valor
+            print(f"\nSe ha realizado el pago del sobregiro: ${self.pagar_sobregiro()}")
+        else:
+            print("Saldo insuficiente en la cuenta.")
+        
+    #def ver_sobregiro(self):
+    #    print(f"\nsobregiro: {self.__sobregiro}")
